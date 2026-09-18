@@ -1,0 +1,498 @@
+/* ==========================================================================
+   1. Reset & Emo / Dark Alt-Modern Aesthetic
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Space+Grotesk:wght@400;500;600;700&family=Sarabun:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0b0c10;             /* ดำเข้มสนิท */
+  --surface: #14161d;        /* ดำเทา Onyx */
+  --surface-card: #1a1d26;   /* เทาเข้มโปร่ง */
+  --text: #d2d7df;           /* ขาวเทาเงิน */
+  --text-muted: #8892b0;     /* เทาอมสโมค */
+  
+  --brand: #4b5de1;          /* น้ำเงินม่วง Indigo / Alt-Rock */
+  --brand-hover: #6373f1;    /* น้ำเงินสว่างขึ้นเมื่อชี้ */
+  --accent-purple: #8338ec;  /* ม่วงดาร์กอินดี้ */
+  --border: #2a2e3d;         /* ขอบเทาเงินเข้ม */
+  --border-active: #4b5de1aa;
+
+  --gap: 24px;
+  --radius: 8px;
+  --max-width: 1100px;
+
+  --font-heading: 'Space Grotesk', 'Sarabun', sans-serif;
+  --font-art: 'Cinzel', serif;
+  --font-body: 'Sarabun', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background-color: var(--bg);
+  /* พื้นหลังติดเอฟเฟกต์เกรน/แสงออร่าลึกๆ */
+  background-image: 
+    radial-gradient(circle at 15% 15%, #4b5de115 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, #8338ec12 0%, transparent 40%),
+    linear-gradient(to bottom, #0b0c10dd, #0b0c10);
+  background-attachment: fixed;
+  line-height: 1.7;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--brand);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+a:hover {
+  color: var(--brand-hover);
+  text-shadow: 0 0 10px #4b5de188;
+}
+
+/* ==========================================================================
+   2. Headings & Typography
+   ========================================================================== */
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+section {
+  margin-bottom: 48px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: #ffffff;
+  letter-spacing: -0.3px;
+}
+
+h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+h2::before {
+  content: '✦';
+  color: var(--brand);
+  font-size: 1.1rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.page-head {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.tagline {
+  font-size: 1.05rem;
+  color: var(--brand-hover);
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   3. Header & Navigation Menu
+   ========================================================================== */
+
+.site-header {
+  background-color: #0b0c10ee;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: var(--font-art);
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.logo:hover {
+  color: var(--brand);
+  text-shadow: none;
+}
+
+.site-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 12px;
+}
+
+.site-nav a {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  border: 1px solid transparent;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: #ffffff;
+  background-color: var(--surface-card);
+  border-color: var(--border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.site-nav a.active {
+  border-color: var(--brand);
+  color: #ffffff;
+  background-color: var(--brand);
+}
+
+/* ==========================================================================
+   4. Hero & About Cards
+   ========================================================================== */
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  background-color: var(--surface);
+  padding: 36px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 3px;
+  background: linear-gradient(90deg, var(--brand), var(--accent-purple), transparent);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.avatar {
+  width: 170px;
+  height: 170px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid var(--border);
+  filter: contrast(105%) grayscale(15%);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.02);
+  border-color: var(--brand);
+}
+
+.hero-text .btn {
+  margin-top: 20px;
+}
+
+.btn {
+  font-family: var(--font-heading);
+  display: inline-block;
+  background-color: var(--brand);
+  color: #ffffff;
+  padding: 10px 24px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px #4b5de140;
+  transition: all 0.25s ease;
+}
+
+.btn:hover {
+  background-color: var(--brand-hover);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px #4b5de166;
+}
+
+.two-col {
+  display: flex;
+  gap: var(--gap);
+}
+
+.col {
+  flex: 1;
+  background-color: var(--surface);
+  padding: 28px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.col ul {
+  list-style: none;
+}
+
+.col li {
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.col li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--brand);
+  font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   5. Skill & Project Cards
+   ========================================================================== */
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--gap);
+}
+
+.skill-card {
+  background-color: var(--surface);
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  border-color: var(--brand);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(75, 93, 225, 0.2);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--gap);
+}
+
+.project-card {
+  background-color: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: var(--border-active);
+  transform: translateY(-4px);
+}
+
+.project-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border);
+  filter: contrast(105%) brightness(90%);
+}
+
+.project-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 14px 0;
+}
+
+.tech-list li {
+  font-family: var(--font-heading);
+  background-color: #4b5de115;
+  color: var(--brand-hover);
+  border: 1px solid #4b5de133;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.project-links {
+  margin-top: auto;
+  display: flex;
+  gap: 16px;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   6. Timeline & Dark Table
+   ========================================================================== */
+
+.timeline {
+  border-left: 2px solid var(--border);
+  padding-left: 24px;
+  margin-left: 12px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -31px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--brand);
+  box-shadow: 0 0 10px var(--brand);
+}
+
+.period {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: var(--brand-hover);
+  font-weight: 600;
+}
+
+.grade-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.grade-table caption {
+  font-family: var(--font-heading);
+  text-align: left;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.grade-table th,
+.grade-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.grade-table th {
+  font-family: var(--font-heading);
+  background-color: var(--surface-card);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   7. Form Controls (Contact)
+   ========================================================================== */
+
+.contact-form .form-group {
+  margin-bottom: 18px;
+}
+
+.contact-form label {
+  font-family: var(--font-heading);
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.25s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 12px #4b5de133;
+}
+
+.required {
+  color: var(--brand);
+}
+
+.contact-info {
+  list-style: none;
+}
+
+.contact-info li {
+  margin-bottom: 14px;
+}
+
+/* ==========================================================================
+   8. Footer & Mobile Responsive
+   ========================================================================== */
+
+.site-footer {
+  text-align: center;
+  padding: 32px 20px;
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .site-header { flex-direction: column; gap: 16px; text-align: center; }
+  .hero { flex-direction: column; text-align: center; }
+  .two-col { flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+  .grade-table { display: block; overflow-x: auto; white-space: nowrap; }
+}
